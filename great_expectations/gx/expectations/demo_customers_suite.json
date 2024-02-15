@@ -1,0 +1,43 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "demo_customers_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "ge_cloud_id": "2cb2dd33-737a-4228-8bfa-f20a299dc676",
+      "kwargs": {
+        "column": "age"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "ge_cloud_id": "48ec3157-4a2c-436f-8017-ca9cebf94692",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": "15c9dcc7-ca36-414c-babb-5dd00efc3ca7",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": "23613c4c-2e9f-4ba4-8af1-a6394ab2ceb5",
+      "kwargs": {
+        "column": "age",
+        "mostly": 0.2
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": "288ff843-5e51-4e30-83d3-90e56f5c8608",
+  "meta": {
+    "great_expectations_version": "0+untagged.11894.g7627b7d"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "demo_orders_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "ge_cloud_id": "6026884a-5eec-4db4-b02a-446b402795eb",
+      "kwargs": {
+        "column": "payment_type"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_compound_columns_to_be_unique",
+      "ge_cloud_id": "8121b10d-6ee5-405d-b5ce-ae49f65ad382",
+      "kwargs": {
+        "column_list": [
+          "sk_transaction_header",
+          "sk_transaction_line"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "ge_cloud_id": "8f8a51c3-439c-41f9-9972-0f7272d32dda",
+      "kwargs": {
+        "column": "payment_type",
+        "value_set": [
+          "Credit Card",
+          "Cash",
+          "PayPal"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": "2b1b24bc-07dd-41de-9aed-3f2f061f5237",
+      "kwargs": {
+        "column": "payment_type"
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": "0f8012d4-a11f-49ba-8789-c672da613dcd",
+  "meta": {
+    "great_expectations_version": "0+untagged.11894.g7627b7d"
+  }
+}

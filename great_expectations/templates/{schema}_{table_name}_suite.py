@@ -18,9 +18,9 @@ context = gx.get_context(context_root_dir = "./../gx")
 # COMMAND ----------
 
 # DBTITLE 1,Specify your parameters here!
-datasource_name = "databricks"
-asset_name = f"silver.order"
-suite_name = "order_suite"
+datasource_name = ""
+asset_name = f""
+suite_name = ""
 
 # COMMAND ----------
 
@@ -48,14 +48,15 @@ validator = context.get_validator(batch_request=batch_request, expectation_suite
 
 # COMMAND ----------
 
-validator.expect_column_values_to_be_null("payment_type")
-
-validator.expect_column_values_to_not_be_null("gift")
-
-validator.expect_compound_columns_to_be_unique(["", "",""])
-
-validator.expect_column_values_to_be_in_set("bundle_split", ["0","1","2"])
+# Rules on 'id': unique and not null
+validator.expect_column_to_exist("id")
+validator.expect_column_values_to_be_unique("id")
+validator.expect_column_values_to_not_be_null("id")
 
 # COMMAND ----------
 
 validator.save_expectation_suite()
+
+# COMMAND ----------
+
+

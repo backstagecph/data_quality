@@ -20,16 +20,19 @@ context = gx.get_context(context_root_dir = './../gx')
 
 # COMMAND ----------
 
-delta_date = '2024-01-25'
 datasource_name = "databricks"
-asset_name = f"silver.order"
-suite_name = "order_suite"
+asset_name = f"demo.orders"
+suite_name = "demo_orders_suite"
+delta_column = "dw_datetime_load_utc"
+delta_date = "2024-02-14"
 checkpoint_name = f"Delta Load Check: {delta_date}"
-delta_column = "dw_load_datetime"
 
 # COMMAND ----------
 
-df_for_validation = spark.sql(f"""SELECT * FROM {asset_name} WHERE {delta_column} = '{delta_date}' LIMIT 1000""")
+if delta_column != "":
+    df_for_validation = spark.sql(f"""SELECT * FROM {asset_name} WHERE {delta_column} = '{delta_date}' LIMIT 1000""")
+else:
+    df_for_validation = spark.sql(f"""SELECT * FROM {asset_name}""")
 
 # COMMAND ----------
 
@@ -62,3 +65,7 @@ checkpoint.run(run_name=f"{checkpoint_name}")
 # COMMAND ----------
 
 context.build_data_docs(site_names="azure_hosted_site")
+
+# COMMAND ----------
+
+
